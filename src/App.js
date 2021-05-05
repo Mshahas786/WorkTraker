@@ -1,16 +1,27 @@
 import React from 'react';
-// import logo from './logo.svg';
-import { Button, Container} from 'react-bootstrap' ;
+import Header from './Components/Navbar/Header'
+import Home from './Components/Pages/Home'
+import Roster from './Components/Pages/Roster'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <Container>
-      <h1 className="text-center">WorkTraker</h1>
-      <Button className="btn-warning ">
-       <h3 className="text-light">click here </h3> 
-      </Button>
-    </Container>
+    <div>
+      <Header/>
+      <Router>
+        <Route exact path="/"> <Home/> </Route>
+      </Router>
+      <Router>
+        <Route path="/Roster"> <Roster/> </Route>
+      </Router>
+    </div>
   );
 }
 
